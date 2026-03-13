@@ -1,8 +1,11 @@
+from mystery_module import transform_data
 
-
-# FREEZE CODE BEGIN
+# Entradas
 x = int(input())
 y = float(input())
-# FREEZE CODE END
 
+# Llamar la función
+resultado = transform_data(x, y, "quiz_test")
 
+# Imprimir resultado
+print(resultado)
