@@ -7,7 +7,7 @@ while True:
     if operation == "exit":
         break
 
-    if operation not in ["add","subtract","multiply","divide","exponent","modulo","floor_divide","absolute"]:
+    if operation not in ["add", "subtract", "multiply", "divide", "exponent", "modulo", "floor_divide", "absolute"]:
         print("Invalid option!")
         continue
 
@@ -31,23 +31,17 @@ while True:
 
     elif operation == "divide":
         result = divide(num1, num2)
-        if isinstance(result, str):
-            print(result)
-            continue
 
     elif operation == "exponent":
         result = exponent(num1, num2)
 
     elif operation == "modulo":
         result = modulo(num1, num2)
-        if isinstance(result, str):
-            print(result)
-            continue
 
     elif operation == "floor_divide":
         result = floor_divide(num1, num2)
-        if isinstance(result, str):
-            print(result)
-            continue
 
-    print(f"The result is: {result}")
+    if isinstance(result, str):
+        print(result)
+    else:
+        print(f"The result is: {result}")
