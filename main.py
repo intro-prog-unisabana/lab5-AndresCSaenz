@@ -1,58 +1,53 @@
-def greet(name):
-    return f"Hello, {name}!"
+from utils import add, sub, multiply, divide, exponent, modulo, floor_divide, absolute
 
+while True:
 
-def flip(input_string):
-    return input_string[::-1]
+    operation = input("Which calculation would you like to perform? (add, subtract, multiply, divide, exponent, modulo, floor_divide, absolute, exit):\n").lower()
 
+    if operation == "exit":
+        break
 
-def count_letters(input_string, letter):
-    count = 0
-    for char in input_string:
-        if char == letter:
-            count += 1
-    return count
+    if operation not in ["add","subtract","multiply","divide","exponent","modulo","floor_divide","absolute"]:
+        print("Invalid option!")
+        continue
 
-if _name_ == "_main_":
-  print("This file is being run directly.")
-# FREEZE CODE END
+    if operation == "absolute":
+        num = float(input("Enter the number:\n"))
+        result = absolute(num)
+        print(f"The result is: {result}")
+        continue
 
+    num1 = float(input("Enter the first number:\n"))
+    num2 = float(input("Enter the second number:\n"))
 
-# ====== FUNCIONES DE LA CALCULADORA ======
+    if operation == "add":
+        result = add(num1, num2)
 
-def add(num1, num2):
-    return num1 + num2
+    elif operation == "subtract":
+        result = sub(num1, num2)
 
+    elif operation == "multiply":
+        result = multiply(num1, num2)
 
-def sub(num1, num2):
-    return num1 - num2
+    elif operation == "divide":
+        result = divide(num1, num2)
+        if isinstance(result, str):
+            print(result)
+            continue
 
+    elif operation == "exponent":
+        result = exponent(num1, num2)
 
-def multiply(num1, num2):
-    return num1 * num2
+    elif operation == "modulo":
+        result = modulo(num1, num2)
+        if isinstance(result, str):
+            print(result)
+            continue
 
+    elif operation == "floor_divide":
+        result = floor_divide(num1, num2)
+        if isinstance(result, str):
+            print(result)
+            continue
 
-def divide(num1, num2):
-    if num2 == 0:
-        return "Error: Division by zero is not allowed."
-    return num1 / num2
-
-
-def exponent(base, exp):
-    return base ** exp
-
-
-def modulo(num1, num2):
-    if num2 == 0:
-        return "Error: Modulo by zero is not allowed."
-    return num1 % num2
-
-
-def floor_divide(num1, num2):
-    if num2 == 0:
-        return "Error: Division by zero is not allowed."
-    return num1 // num2
-
-
-def absolute(num):
-    return abs(num)
+    print(f"The result is: {result}")
